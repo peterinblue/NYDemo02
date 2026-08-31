@@ -1,54 +1,318 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NYDemo02 · Hello World</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
-      color: #fff;
-    }
-    .card {
-      text-align: center;
-      padding: 48px 56px;
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(6px);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
-    }
-    h1 {
-      font-size: 56px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      margin-bottom: 12px;
-    }
-    p {
-      font-size: 16px;
-      opacity: 0.85;
-    }
-    .tag {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 6px 14px;
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      border-radius: 999px;
-      font-size: 13px;
-      opacity: 0.9;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>集团绿色发展信息管理系统 · 功能地图</title>
+<style>
+  :root {
+    --ink: #1f2738;
+    --ink-soft: #6b7280;
+    --line: #ececf2;
+    --top: #7F77DD;     /* 顶层设计层 */
+    --exec: #1D9E75;    /* 日常执行层 */
+    --spec: #C98A1E;    /* 专项攻坚层 */
+    --guar: #E0574B;    /* 过程保障层 */
+    --check: #534AB7;   /* 考核检验层 */
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 40px 20px;
+    font-family: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: linear-gradient(160deg, #f4f6fb 0%, #eef1f8 100%);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .poster {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 26px;
+    padding: 38px 44px 34px;
+    box-shadow: 0 24px 70px rgba(22, 32, 64, 0.10);
+  }
+
+  /* ---------- 头部 ---------- */
+  .head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .brand { display: flex; align-items: center; gap: 16px; }
+  .logo {
+    width: 52px; height: 52px;
+    border-radius: 15px;
+    background: linear-gradient(140deg, #8b83e6, #6f64cf);
+    display: grid; place-items: center;
+    box-shadow: 0 8px 20px rgba(111, 100, 207, 0.35);
+  }
+  .logo svg { width: 28px; height: 28px; stroke: #fff; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .titles h1 { margin: 0; font-size: 25px; font-weight: 750; letter-spacing: .5px; }
+  .titles p { margin: 5px 0 0; font-size: 13.5px; color: var(--ink-soft); letter-spacing: 1px; }
+  .tag {
+    font-size: 13px;
+    color: var(--top);
+    background: color-mix(in srgb, var(--top) 10%, #fff);
+    border: 1px solid color-mix(in srgb, var(--top) 28%, #fff);
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .divider {
+    height: 1px;
+    margin: 22px 0 24px;
+    background: linear-gradient(90deg, transparent, #dfe2ec 18%, #dfe2ec 82%, transparent);
+  }
+
+  /* ---------- 层级 ---------- */
+  .layer {
+    --lc: #999;
+    background: color-mix(in srgb, var(--lc) 7%, #fff);
+    border: 1px solid color-mix(in srgb, var(--lc) 14%, #fff);
+    border-radius: 18px;
+    padding: 18px 22px;
+    display: grid;
+    grid-template-columns: 210px 1fr;
+    gap: 22px;
+    align-items: stretch;
+  }
+  .layer-label {
+    background: var(--lc);
+    border-radius: 14px;
+    padding: 18px 18px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .layer-no { font-size: 12px; opacity: .82; letter-spacing: 2px; }
+  .layer-name { font-size: 19px; font-weight: 750; margin: 6px 0; }
+  .layer-mission { font-size: 12.5px; line-height: 1.6; opacity: .92; }
+
+  .layer-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .layer.single .layer-cards { grid-template-columns: 1fr; }
+
+  /* ---------- 模块卡片 ---------- */
+  .card {
+    --mc: #666;
+    position: relative;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--mc);
+    border-radius: 14px;
+    padding: 16px 18px 16px 16px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    box-shadow: 0 2px 10px rgba(22, 32, 64, 0.045);
+    transition: transform .18s ease, box-shadow .18s ease;
+  }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 12px 26px rgba(22, 32, 64, 0.10); }
+  .icon {
+    width: 46px; height: 46px;
+    border-radius: 13px;
+    background: color-mix(in srgb, var(--mc) 13%, #fff);
+    display: grid; place-items: center;
+    flex-shrink: 0;
+  }
+  .icon svg { width: 26px; height: 26px; stroke: var(--mc); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .meta { flex: 1; padding-right: 26px; }
+  .num {
+    position: absolute; top: 12px; right: 16px;
+    font-size: 12px; font-weight: 750; color: #c2c6d2; letter-spacing: .5px;
+  }
+  .name { font-size: 15.5px; font-weight: 680; color: #232a3b; }
+  .desc { font-size: 12.5px; color: #707686; margin-top: 5px; line-height: 1.55; }
+
+  /* ---------- 流程连接 ---------- */
+  .connector {
+    --nc: #999;
+    height: 30px;
+    display: grid; place-items: center;
+  }
+  .connector svg { width: 22px; height: 24px; stroke: var(--nc); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* ---------- 闭环横幅 ---------- */
+  .loop-banner {
+    margin-top: 18px;
+    border-radius: 16px;
+    padding: 18px 24px;
+    display: flex; align-items: center; gap: 16px;
+    background: linear-gradient(120deg,
+      color-mix(in srgb, var(--top) 9%, #fff),
+      color-mix(in srgb, var(--exec) 9%, #fff) 40%,
+      color-mix(in srgb, var(--spec) 9%, #fff) 65%,
+      color-mix(in srgb, var(--check) 9%, #fff));
+    border: 1px solid #e7e9f1;
+  }
+  .loop-icon {
+    width: 42px; height: 42px; border-radius: 12px;
+    background: #fff; display: grid; place-items: center; flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(22,32,64,.08);
+  }
+  .loop-icon svg { width: 24px; height: 24px; stroke: var(--check); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .loop-text { font-size: 13.5px; color: #3a4256; line-height: 1.6; }
+  .loop-text b { color: #232a3b; }
+
+  /* ---------- 响应式 ---------- */
+  @media (max-width: 760px) {
+    .poster { padding: 26px 20px; }
+    .head { flex-direction: column; align-items: flex-start; gap: 14px; }
+    .layer { grid-template-columns: 1fr; }
+    .layer-cards { grid-template-columns: 1fr; }
+  }
+  @media print {
+    body { background: #fff; padding: 0; }
+    .poster { box-shadow: none; max-width: none; }
+  }
+</style>
 </head>
 <body>
-  <div class="card">
-    <h1>Hello World</h1>
-    <p>NYDemo02 · GitHub Pages</p>
-    <span class="tag">peterinblue.github.io/NYDemo02</span>
+  <div class="poster">
+
+    <!-- 头部 -->
+    <header class="head">
+      <div class="brand">
+        <div class="logo">
+          <svg viewBox="0 0 24 24"><path d="M5 19 C5 9 12 4 19 4 C19 13 13 19 5 19 Z"/><path d="M5 19 C9 15 13 12 17 10"/></svg>
+        </div>
+        <div class="titles">
+          <h1>集团绿色发展信息管理系统</h1>
+          <p>业务全景地图 · 五大层级 · 九大模块</p>
+        </div>
+      </div>
+      <div class="tag">规划业务全景地图</div>
+    </header>
+    <div class="divider"></div>
+
+    <!-- 层级一：顶层设计层 -->
+    <section class="layer" style="--lc: var(--top);">
+      <div class="layer-label">
+        <div class="layer-no">层级一</div>
+        <div class="layer-name">顶层设计层</div>
+        <div class="layer-mission">回答"战略目标怎么定、减碳路径怎么走"</div>
+      </div>
+      <div class="layer-cards">
+        <article class="card" style="--mc: var(--top);">
+          <div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="0.8" fill="currentColor" stroke="none"/></svg></div>
+          <div class="meta"><div class="name">十五五规划管理</div><div class="desc">战略目标制定与规划编制，统筹集团绿色发展全局蓝图</div></div>
+          <div class="num">01</div>
+        </article>
+        <article class="card" style="--mc: #8B7FE8;">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M2 17 L8 8 L12 14 L16 6 L22 17"/><path d="M2 20 H22"/></svg></div>
+          <div class="meta"><div class="name">碳达峰行动方案管理</div><div class="desc">碳达峰路径设计与行动方案分解，明确减排时间表路线图</div></div>
+          <div class="num">02</div>
+        </article>
+      </div>
+    </section>
+
+    <div class="connector" style="--nc: var(--exec);"><svg viewBox="0 0 24 24"><path d="M12 3 V18"/><path d="M7 13 L12 19 L17 13"/></svg></div>
+
+    <!-- 层级二：日常执行层 -->
+    <section class="layer" style="--lc: var(--exec);">
+      <div class="layer-label">
+        <div class="layer-no">层级二</div>
+        <div class="layer-name">日常执行层</div>
+        <div class="layer-mission">回答"日常业务怎么管、底线怎么守"</div>
+      </div>
+      <div class="layer-cards">
+        <article class="card" style="--mc: var(--exec);">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M13 2 L4 14 H11 L10 22 L20 9 H13 Z"/></svg></div>
+          <div class="meta"><div class="name">能碳管理</div><div class="desc">能耗与碳排放实时监测，能碳数据归集与对标分析</div></div>
+          <div class="num">03</div>
+        </article>
+        <article class="card" style="--mc: #2E9BD6;">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M5 19 C5 9 12 4 19 4 C19 13 13 19 5 19 Z"/><path d="M5 19 C9 15 13 12 17 10"/></svg></div>
+          <div class="meta"><div class="name">环保管理</div><div class="desc">污染防治与环保合规监管，排放达标全过程管控</div></div>
+          <div class="num">04</div>
+        </article>
+      </div>
+    </section>
+
+    <div class="connector" style="--nc: var(--spec);"><svg viewBox="0 0 24 24"><path d="M12 3 V18"/><path d="M7 13 L12 19 L17 13"/></svg></div>
+
+    <!-- 层级三：专项攻坚层 -->
+    <section class="layer" style="--lc: var(--spec);">
+      <div class="layer-label">
+        <div class="layer-no">层级三</div>
+        <div class="layer-name">专项攻坚层</div>
+        <div class="layer-mission">回答"先进怎么创、效益怎么挖"</div>
+      </div>
+      <div class="layer-cards">
+        <article class="card" style="--mc: var(--spec);">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 21 V10 L9 6 V10 L15 6 V10 L21 8 V21 Z"/><path d="M3 21 H21"/><path d="M9 21 V14"/><path d="M15 21 V14"/></svg></div>
+          <div class="meta"><div class="name">绿色制造示范管理</div><div class="desc">绿色工厂 / 园区 / 供应链示范创建，先进标杆申报管理</div></div>
+          <div class="num">05</div>
+        </article>
+        <article class="card" style="--mc: #7BA62F;">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 17 L9 11 L13 15 L21 6"/><path d="M21 6 H15"/><path d="M21 6 V12"/></svg></div>
+          <div class="meta"><div class="name">能源提质增效管理</div><div class="desc">节能技改与能效提升项目推进，挖掘节能降碳效益</div></div>
+          <div class="num">06</div>
+        </article>
+      </div>
+    </section>
+
+    <div class="connector" style="--nc: var(--guar);"><svg viewBox="0 0 24 24"><path d="M12 3 V18"/><path d="M7 13 L12 19 L17 13"/></svg></div>
+
+    <!-- 层级四：过程保障层 -->
+    <section class="layer" style="--lc: var(--guar);">
+      <div class="layer-label">
+        <div class="layer-no">层级四</div>
+        <div class="layer-name">过程保障层</div>
+        <div class="layer-mission">回答"隐患怎么防、执行怎么验"</div>
+      </div>
+      <div class="layer-cards">
+        <article class="card" style="--mc: var(--guar);">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 3 L22 20 H2 Z"/><path d="M12 9 V14"/><circle cx="12" cy="17" r="0.9" fill="currentColor" stroke="none"/></svg></div>
+          <div class="meta"><div class="name">风险管控</div><div class="desc">绿色发展风险识别预警与应急处置，筑牢风险防线</div></div>
+          <div class="num">07</div>
+        </article>
+        <article class="card" style="--mc: #2F6FB0;">
+          <div class="icon"><svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="7"/><path d="M15 15 L21 21"/></svg></div>
+          <div class="meta"><div class="name">工作检查</div><div class="desc">任务执行督查与问题整改闭环，确保落地见效</div></div>
+          <div class="num">08</div>
+        </article>
+      </div>
+    </section>
+
+    <div class="connector" style="--nc: var(--check);"><svg viewBox="0 0 24 24"><path d="M12 3 V18"/><path d="M7 13 L12 19 L17 13"/></svg></div>
+
+    <!-- 层级五：考核检验层 -->
+    <section class="layer single" style="--lc: var(--check);">
+      <div class="layer-label">
+        <div class="layer-no">层级五</div>
+        <div class="layer-name">考核检验层</div>
+        <div class="layer-mission">回答"成绩怎么样、短板怎么改"</div>
+      </div>
+      <div class="layer-cards">
+        <article class="card" style="--mc: var(--check);">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 3 L14.5 9 L21 9.5 L16 14 L17.5 20.5 L12 17 L6.5 20.5 L8 14 L3 9.5 L9.5 9 Z"/></svg></div>
+          <div class="meta"><div class="name">国资委绿色发展评价管理</div><div class="desc">综合评分与对标分析，短板诊断与改进建议 —— 体系最终闭环出口</div></div>
+          <div class="num">09</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 闭环横幅 -->
+    <div class="loop-banner">
+      <div class="loop-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 12 a9 9 0 0 1 15-6.7 L21 8"/><path d="M21 3 v5 h-5"/><path d="M21 12 a9 9 0 0 1 -15 6.7 L3 16"/><path d="M3 21 v-5 h5"/></svg>
+      </div>
+      <div class="loop-text">
+        <b>管理闭环</b> · 考核检验结果反哺战略优化，构建「目标设定 → 日常执行 → 专项攻坚 → 过程保障 → 考核检验」持续迭代的 PDCA 闭环管理体系
+      </div>
+    </div>
+
   </div>
 </body>
 </html>
