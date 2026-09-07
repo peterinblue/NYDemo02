@@ -60,7 +60,7 @@
   .flow { display: flex; align-items: stretch; gap: 0; counter-reset: layer; }
   .stage {
     --lc: #999; counter-increment: layer;
-    flex: 1 1 0; min-width: 188px;
+    flex: 1 1 0; min-width: 188px; min-height: 330px;
     background: linear-gradient(180deg, color-mix(in srgb, var(--lc) 9%, #fff), color-mix(in srgb, var(--lc) 3%, #fff));
     border: 1px solid color-mix(in srgb, var(--lc) 16%, #fff);
     border-radius: 18px;
@@ -115,6 +115,8 @@
   .num { position: absolute; top: 11px; right: 13px; font-size: 11.5px; font-weight: 750; color: #c2c6d2; letter-spacing: .5px; }
   .name { font-size: 14.5px; font-weight: 700; color: #1f2738; line-height: 1.35; }
   .desc { font-size: 12px; color: #6b7280; margin-top: 5px; line-height: 1.5; }
+  .points { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .points span { font-size: 11px; color: var(--mc); background: color-mix(in srgb, var(--mc) 9%, #fff); border: 1px solid color-mix(in srgb, var(--mc) 18%, #fff); padding: 3px 9px; border-radius: 7px; }
 
   /* 闭环出口强调 */
   .stage.final {
@@ -286,6 +288,9 @@
             <div class="meta" data-page-node-id="CydPDLsGKMQZQb0kQPmk8h">
               <div class="name" data-page-node-id="LvJkvzUnRSDwSvw06rEnT9">国资委绿色发展评价管理</div>
               <div class="desc" data-page-node-id="0hMU1woLLHlx6AAsl1O965">综合评分与对标分析，短板诊断与改进建议</div>
+              <div class="points" data-page-node-id="green-pts-01">
+                <span>综合评分</span><span>对标分析</span><span>短板诊断</span><span>改进建议</span>
+              </div>
               <span class="out-tag" data-page-node-id="rPhxy1nksBB5wCLvg3j21y">体系闭环出口</span>
             </div>
             <div class="num" data-page-node-id="E5SfV5viYLcHspwcv84rm4">09</div>
