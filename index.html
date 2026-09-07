@@ -1,299 +1,387 @@
 <!DOCTYPE html>
-<html lang="zh-CN" data-page-node-id="rU2uPK1THL3oPPvrHqYTho">
-<head data-page-node-id="nDTNGaQbzObuT5SWzx3SKN">
-<meta charset="UTF-8" data-page-node-id="hEQI24GJGzKUpMxnItsGDy" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="LEhVwQxnbLa4Z20juvNWut" />
+<html lang="zh-CN" data-page-node-id="M7C8LzU5V69f6ipJNvmeFk">
+<head data-page-node-id="HC7qS3oM0fDQiB9rve6JD8">
+<meta charset="UTF-8" data-page-node-id="R9opaqHpIXWTAZuKCuRD6C" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="xyeCDMc5Hh1fDwGNSdYsj0" />
 <title>集团绿色发展信息管理系统 · 功能地图</title>
 <style>
   :root {
-    --ink: #1f2738;
-    --ink-soft: #6b7280;
-    --line: #ececf2;
-    --top: #7F77DD;     /* 顶层设计层 */
-    --exec: #1D9E75;    /* 日常执行层 */
-    --spec: #C98A1E;    /* 专项攻坚层 */
-    --guar: #E0574B;    /* 过程保障层 */
-    --check: #534AB7;   /* 考核检验层 */
+    /* ---- 大屏深色主题色 ---- */
+    --bg-deep: #0a1220;
+    --bg-card: rgba(14, 32, 52, 0.75);
+    --bg-card-hover: rgba(18, 42, 68, 0.88);
+    --border: rgba(0, 200, 160, 0.15);
+    --border-light: rgba(255, 255, 255, 0.06);
+    --text: #e4ecf5;
+    --text-dim: #7a8fa8;
+    --text-muted: #4a6080;
+
+    /* 五层级代表色（对齐大屏青绿/蓝调） */
+    --top: #7c8cff;      /* 顶层设计 - 靛蓝 */
+    --exec: #00d4a0;     /* 日常执行 - 青绿 */
+    --spec: #f0a020;     /* 专项攻坚 - 琥珀 */
+    --guar: #f05545;     /* 过程保障 - 珊瑚红 */
+    --check: #3b9eff;    /* 考核检验 - 天蓝 */
   }
 
-  * { box-sizing: border-box; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
-    margin: 0;
-    padding: 40px 20px;
-    font-family: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", system-ui, -apple-system, "Segoe UI", sans-serif;
-    background: linear-gradient(160deg, #f4f6fb 0%, #eef1f8 100%);
-    color: var(--ink);
+    min-height: 100vh;
+    padding: 28px 20px 40px;
+    font-family: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", system-ui, -apple-system, sans-serif;
+    background: var(--bg-deep);
+    background-image:
+      radial-gradient(ellipse at 20% 0%, rgba(0, 212, 160, 0.06) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 100%, rgba(59, 158, 255, 0.05) 0%, transparent 50%);
+    color: var(--text);
     -webkit-font-smoothing: antialiased;
   }
 
   .poster {
     max-width: 1440px; width: 100%;
     margin: 0 auto;
-    background: #ffffff;
-    border-radius: 26px;
-    padding: 38px 40px 34px;
-    box-shadow: 0 24px 70px rgba(22, 32, 64, 0.10);
+    background: linear-gradient(170deg, rgba(12, 26, 44, 0.92), rgba(8, 18, 32, 0.96));
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    padding: 32px 36px 30px;
+    box-shadow:
+      0 0 60px rgba(0, 0, 0, 0.4),
+      0 0 120px rgba(0, 200, 160, 0.03),
+      inset 0 1px 0 rgba(255,255,255,0.03);
   }
 
-  /* ---------- 头部 ---------- */
-  .head { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-  .brand { display: flex; align-items: center; gap: 16px; }
+  /* ========== 头部：文字 logo 居中 ========== */
+  .head {
+    text-align: center;
+    padding-bottom: 6px;
+  }
+  .logo-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 6px;
+  }
   .logo {
-    width: 52px; height: 52px; border-radius: 15px;
-    background: linear-gradient(140deg, #8b83e6, #6f64cf);
+    width: 42px; height: 42px; border-radius: 12px;
+    background: linear-gradient(135deg, var(--top), #5a4fd6);
     display: grid; place-items: center;
-    box-shadow: 0 8px 20px rgba(111, 100, 207, 0.35);
+    box-shadow: 0 6px 20px rgba(124, 140, 255, 0.3);
   }
-  .logo svg { width: 28px; height: 28px; stroke: #fff; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-  .titles h1 { margin: 0; font-size: 25px; font-weight: 750; letter-spacing: .5px; }
-  .titles p { margin: 5px 0 0; font-size: 13.5px; color: var(--ink-soft); letter-spacing: 1px; }
+  .logo svg { width: 24px; height: 24px; stroke: #fff; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .title-main {
+    font-size: 26px; font-weight: 750;
+    letter-spacing: 2px;
+    background: linear-gradient(90deg, #fff 20%, var(--exec) 50%, #fff 80%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .title-sub {
+    font-size: 13px; color: var(--text-dim);
+    letter-spacing: 3px; margin-top: 4px;
+  }
+  .tag-row {
+    display: flex; justify-content: center; gap: 10px; margin-top: 12px;
+  }
   .tag {
-    font-size: 13px; color: var(--top);
-    background: color-mix(in srgb, var(--top) 10%, #fff);
-    border: 1px solid color-mix(in srgb, var(--top) 28%, #fff);
-    padding: 8px 16px; border-radius: 999px; font-weight: 600; white-space: nowrap;
+    font-size: 12px; color: var(--exec);
+    background: rgba(0, 212, 160, 0.08);
+    border: 1px solid rgba(0, 212, 160, 0.2);
+    padding: 5px 16px; border-radius: 999px; font-weight: 600;
   }
-  .divider { height: 3px; border-radius: 3px; margin: 20px 0 26px; background: linear-gradient(90deg, var(--top), var(--exec), var(--spec), var(--guar), var(--check)); opacity: .9; }
+  .divider {
+    height: 1px; margin: 18px 0 22px;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      var(--top) 15%, var(--exec) 35%, var(--spec) 55%, var(--guar) 75%, var(--check) 90%,
+      transparent 100%
+    );
+    opacity: .5;
+  }
 
-  /* ---------- 横向流程 ---------- */
+  /* ========== 横向流程 ========== */
   .flow { display: flex; align-items: stretch; gap: 0; counter-reset: layer; }
+
   .stage {
-    --lc: #999; counter-increment: layer;
-    flex: 1 1 auto; min-width: 0; min-height: 320px;
-    background: linear-gradient(180deg, color-mix(in srgb, var(--lc) 9%, #fff), color-mix(in srgb, var(--lc) 3%, #fff));
-    border: 1px solid color-mix(in srgb, var(--lc) 16%, #fff);
-    border-radius: 18px;
-    padding: 14px;
-    display: flex; flex-direction: column; gap: 12px;
-    box-shadow: 0 6px 18px rgba(22, 32, 64, 0.05);
+    --lc: #666; counter-increment: layer;
+    flex: 1 1 0; min-width: 0;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 12px;
+    display: flex; flex-direction: column; gap: 10px;
+    backdrop-filter: blur(8px);
+    transition: border-color .25s ease;
   }
+  .stage:hover { border-color: color-mix(in srgb, var(--lc) 35%, transparent); }
+
+  /* 层级头部 */
   .stage-head {
     position: relative;
-    background: linear-gradient(135deg, var(--lc), color-mix(in srgb, var(--lc) 78%, #ffffff));
-    color: #fff; border-radius: 13px;
-    padding: 14px 48px 14px 15px;
-    box-shadow: 0 6px 16px color-mix(in srgb, var(--lc) 26%, transparent);
+    background: linear-gradient(135deg, var(--lc), color-mix(in srgb, var(--lc) 65%, black));
+    color: #fff; border-radius: 11px;
+    padding: 12px 40px 12px 13px;
+    box-shadow: 0 4px 14px color-mix(in srgb, var(--lc) 22%, transparent);
   }
   .stage-head::after {
     content: counter(layer);
-    position: absolute; top: 50%; right: 13px; transform: translateY(-50%);
-    width: 28px; height: 28px; border-radius: 50%;
-    background: rgba(255,255,255,.20); border: 1px solid rgba(255,255,255,.6);
-    display: grid; place-items: center; font-size: 13px; font-weight: 700;
+    position: absolute; top: 50%; right: 11px; transform: translateY(-50%);
+    width: 26px; height: 26px; border-radius: 50%;
+    background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.35);
+    display: grid; place-items: center; font-size: 12px; font-weight: 700;
   }
-  .stage-no { font-size: 11.5px; opacity: .82; letter-spacing: 2px; }
-  .stage-name { font-size: 17px; font-weight: 750; margin: 4px 0; }
-  .stage-mission { font-size: 11.5px; line-height: 1.5; opacity: .92; }
-  .stage-cards { display: flex; flex-direction: column; gap: 12px; flex: 1; justify-content: flex-start; }
+  .stage-no { font-size: 10.5px; opacity: .78; letter-spacing: 2px; text-transform: uppercase; }
+  .stage-name { font-size: 15.5px; font-weight: 750; margin: 3px 0; }
+  .stage-mission { font-size: 10.5px; line-height: 1.5; opacity: .85; }
+  .stage-cards { display: flex; flex-direction: column; gap: 10px; flex: 1; justify-content: flex-start; }
 
+  /* 箭头 */
   .arrow {
-    --nc: #999; flex: 0 0 auto; width: 38px;
+    --nc: #666; flex: 0 0 auto; width: 34px;
     display: flex; align-items: center; justify-content: center;
   }
-  .arrow svg { width: 26px; height: 26px; stroke: var(--nc); fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; opacity: .85; }
+  .arrow svg { width: 24px; height: 24px; stroke: var(--nc); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; opacity: .6; }
 
-  /* ---------- 模块卡片：统一等高 ---------- */
+  /* ---------- 模块卡片 ---------- */
   .card {
-    --mc: #666; position: relative; height: auto; min-height: 108px;
-    background: #fff; border: 1px solid var(--line);
-    border-left: 4px solid var(--mc); border-radius: 13px;
-    padding: 14px 15px 14px 13px;
-    display: flex; gap: 12px; align-items: flex-start;
-    box-shadow: 0 2px 10px rgba(22, 32, 64, 0.045);
-    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    --mc: #666; position: relative;
+    background: rgba(8, 20, 36, 0.55);
+    border: 1px solid var(--border-light);
+    border-left: 3.5px solid var(--mc); border-radius: 11px;
+    padding: 13px 14px 13px 12px;
+    display: flex; gap: 11px; align-items: flex-start;
+    transition: all .2s ease;
   }
-  .card:hover { transform: translateY(-3px); box-shadow: 0 12px 26px rgba(22, 32, 64, 0.10); border-color: color-mix(in srgb, var(--mc) 45%, #fff); }
+  .card:hover {
+    background: var(--bg-card-hover);
+    border-color: color-mix(in srgb, var(--mc) 3%, transparent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  }
   .icon {
-    width: 44px; height: 44px; border-radius: 13px; flex-shrink: 0;
-    background: color-mix(in srgb, var(--mc) 14%, #fff);
-    border: 1px solid color-mix(in srgb, var(--mc) 20%, #fff);
+    width: 40px; height: 40px; border-radius: 11px; flex-shrink: 0;
+    background: color-mix(in srgb, var(--mc) 12%, transparent);
+    border: 1px solid color-mix(in srgb, var(--mc) 22%, transparent);
     display: grid; place-items: center;
   }
-  .icon svg { width: 25px; height: 25px; stroke: var(--mc); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-  .meta { flex: 1; min-width: 0; padding-right: 24px; overflow-wrap: break-word; }
-  .num { position: absolute; top: 11px; right: 13px; font-size: 11.5px; font-weight: 750; color: #c2c6d2; letter-spacing: .5px; }
-  .name { font-size: 14.5px; font-weight: 700; color: #1f2738; line-height: 1.35; overflow-wrap: anywhere; }
-  .desc { font-size: 12px; color: #6b7280; margin-top: 5px; line-height: 1.5; overflow-wrap: anywhere; }
-  .points { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
-  .points span { font-size: 11px; color: var(--mc); background: color-mix(in srgb, var(--mc) 9%, #fff); border: 1px solid color-mix(in srgb, var(--mc) 18%, #fff); padding: 3px 9px; border-radius: 7px; }
-
-  /* 闭环出口强调 */
-  .stage.final {
-    background: linear-gradient(180deg, color-mix(in srgb, var(--check) 15%, #fff), color-mix(in srgb, var(--check) 6%, #fff));
-    border-color: color-mix(in srgb, var(--check) 30%, #fff);
+  .icon svg { width: 22px; height: 22px; stroke: var(--mc); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .meta { flex: 1; min-width: 0; padding-right: 22px; }
+  .num { position: absolute; top: 10px; right: 11px; font-size: 11px; font-weight: 700; color: var(--text-muted); letter-spacing: .5px; }
+  .name { font-size: 13.5px; font-weight: 700; color: var(--text); line-height: 1.35; overflow-wrap: anywhere; }
+  .desc { font-size: 11.5px; color: var(--text-dim); margin-top: 4px; line-height: 1.55; overflow-wrap: anywhere; }
+  .points { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+  .points span {
+    font-size: 10.5px; color: var(--mc);
+    background: color-mix(in srgb, var(--mc) 10%, transparent);
+    border: 1px solid color-mix(in srgb, var(--mc) 18%, transparent);
+    padding: 2px 8px; border-radius: 6px;
   }
-  .stage.final .card { border-left-width: 5px; }
+
+  /* 第5列强调 */
+  .stage.final {
+    background: color-mix(in srgb, var(--check) 6%, var(--bg-card));
+    border-color: color-mix(in srgb, var(--check) 2%, transparent);
+  }
+  .stage.final .card { border-left-width: 4px; }
   .out-tag {
-    display: inline-block; margin-top: 6px; font-size: 11px; font-weight: 650;
-    color: var(--check); background: color-mix(in srgb, var(--check) 10%, #fff);
-    border: 1px solid color-mix(in srgb, var(--check) 26%, #fff);
+    display: inline-block; margin-top: 6px; font-size: 10.5px; font-weight: 650;
+    color: var(--check); background: rgba(59, 158, 255, 0.1);
+    border: 1px solid rgba(59, 158, 255, 0.25);
     padding: 3px 9px; border-radius: 999px;
   }
 
   /* ---------- 闭环横幅 ---------- */
   .loop-banner {
-    margin-top: 20px; border-radius: 16px; padding: 18px 24px;
-    display: flex; align-items: center; gap: 16px;
+    margin-top: 18px; border-radius: 12px; padding: 16px 22px;
+    display: flex; align-items: center; gap: 14px;
     background: linear-gradient(120deg,
-      color-mix(in srgb, var(--top) 9%, #fff),
-      color-mix(in srgb, var(--exec) 9%, #fff) 40%,
-      color-mix(in srgb, var(--spec) 9%, #fff) 65%,
-      color-mix(in srgb, var(--check) 9%, #fff));
-    border: 1px solid #e7e9f1;
+      rgba(124, 140, 255, 0.06),
+      rgba(0, 212, 160, 0.06) 35%,
+      rgba(240, 160, 32, 0.05) 65%,
+      rgba(59, 158, 255, 0.06));
+    border: 1px solid var(--border-light);
   }
   .loop-icon {
-    width: 42px; height: 42px; border-radius: 12px; background: #fff;
+    width: 38px; height: 38px; border-radius: 10px;
+    background: rgba(59, 158, 255, 0.1);
+    border: 1px solid rgba(59, 158, 255, 0.2);
     display: grid; place-items: center; flex-shrink: 0;
-    box-shadow: 0 4px 12px rgba(22,32,64,.08);
   }
-  .loop-icon svg { width: 24px; height: 24px; stroke: var(--check); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-  .loop-text { font-size: 13.5px; color: #3a4256; line-height: 1.6; }
-  .loop-text b { color: #232a3b; }
+  .loop-icon svg { width: 22px; height: 22px; stroke: var(--check); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .loop-text { font-size: 12.5px; color: var(--text-dim); line-height: 1.6; }
+  .loop-text b { color: var(--text); }
 
-  /* ---------- 响应式：窄屏回退竖向 ---------- */
-  @media (max-width: 1080px) {
-    .poster { padding: 26px 20px; }
+  /* ---------- 响应式 ---------- */
+  @media (max-width: 1100px) {
+    .poster { padding: 24px 18px; }
     .flow { flex-direction: column; }
-    .arrow { width: auto; height: 30px; transform: rotate(90deg); }
+    .arrow { width: auto; height: 28px; transform: rotate(90deg); }
     .stage { min-width: 0; }
-    .card { height: auto; min-height: 88px; }
   }
-  @media print { body { background: #fff; padding: 0; } .poster { box-shadow: none; max-width: none; } }
+  @media print {
+    body { background: #000; padding: 0; }
+    .poster { box-shadow: none; max-width: none; border: 1px solid #333; }
+  }
 </style>
 </head>
-<body data-page-node-id="oj2AhPOmgUlcsKLCfeYyTP">
-  <div class="poster" data-page-node-id="BGLcj1T6WCEaXDFaCnWflR">
+<body data-page-node-id="sC2EZtBXMLfIuFteP1K8bI">
+  <div class="poster" data-page-node-id="oC4pty5s806sCR0EnrO4VT">
 
-    <!-- 头部 -->
-    <header class="head" data-page-node-id="W5Iv0znsb4IBC56833NgcB">
-      <div class="brand" data-page-node-id="fxADvljBtmC2tyYKzAr7Ni">
-        <div class="logo" data-page-node-id="OmASWW7YA3n8PYYGInwU7h">
-          <svg viewBox="0 0 24 24" data-page-node-id="JzPStViHNZj4bIQno9hHk7"><path d="M5 19 C5 9 12 4 19 4 C19 13 13 19 5 19 Z" data-page-node-id="OiWZtk2Hli2o2nbOdzBrDD"/><path d="M5 19 C9 15 13 12 17 10" data-page-node-id="Kpj0A07FPdS895CCnp1yWd"/></svg>
-        </div>
-        <div class="titles" data-page-node-id="i1gaU8N8hj315pSFMSU5mO">
-          <h1 data-page-node-id="xazKTz3E4Dvmj6VkNGzaFE">集团绿色发展信息管理系统</h1>
-          <p data-page-node-id="hvMt9J39Tj44WiXimQh4mB">业务全景地图 · 五大层级 · 九大模块（横向流程）</p>
-        </div>
+    <!-- 头部：居中 -->
+    <header class="head" data-page-node-id="qqCglvqYJftwnj9ZEVgBeD">
+      <div class="logo-row" data-page-node-id="kcZfHoe566LwCL98xCUHeB">
+        <div class="logo" data-page-node-id="DA3Xd8uzMaWi363hCDy4pb"><svg viewBox="0 0 24 24" data-page-node-id="m0UNGFuRDd87llKOKsuTGO"><path d="M5 19 C5 9 12 4 19 4 C19 13 13 19 5 19 Z" data-page-node-id="x8HjTedn0X6vnFhV17TkvP"/><path d="M5 19 C9 15 13 12 17 10" data-page-node-id="R9FHKBTHmcCUA7KGHa4TmM"/></svg></div>
+        <h1 class="title-main" data-page-node-id="WVZMYIW1TAOuEHLehEtFGG">集团绿色发展信息管理系统</h1>
+        <div class="logo" style="background:linear-gradient(135deg,var(--exec),#00a080);box-shadow:0 6px 20px rgba(0,212,160,0.3)" data-page-node-id="zC2vFVGayK7fa5MQ1gynpL"><svg viewBox="0 0 24 24" data-page-node-id="Xvq4Zt0HU03GvxE8My0JCB"><circle cx="12" cy="12" r="9" data-page-node-id="yai84HFUnbpu3CO7NXrbma"/><path d="M12 3 a9 9 0 0 1 0 18 a9 9 0 0 1 0 -18 M12 7 v5 h4" data-page-node-id="gnjBHB5KJAzBaJfECAFqq1"/></svg></div>
       </div>
-      <div class="tag" data-page-node-id="zPMrnC8Tr0rIurd1z2x1Sd">规划业务全景地图</div>
+      <p class="title-sub" data-page-node-id="eZxeOY6md2DJ77GcZsxGFg">业务全景地图 · 五大层级 · 九大模块</p>
+      <div class="tag-row" data-page-node-id="eCZWerXTQG2SF64Eb3acmh">
+        <span class="tag" data-page-node-id="oCT2hvw6AAghdX3TXeRBgM">规划业务全景地图</span>
+        <span class="tag" style="color:var(--top);background:rgba(124,140,255,.08);border-color:rgba(124,140,255,.2);" data-page-node-id="eYzD5pRt3IRtGjNsiPWiK4">横向流程</span>
+      </div>
     </header>
-    <div class="divider" data-page-node-id="F1Ab3qWXbcBxKiI2MDli6l"></div>
+    <div class="divider" data-page-node-id="tTGEdNxP3EuQX1oOvfyd3d"></div>
 
-    <!-- 横向流程：五层级从左到右 -->
-    <div class="flow" data-page-node-id="vrUkZvcITAmhTTHXRmtPHB">
+    <!-- 横向流程：五层级 -->
+    <div class="flow" data-page-node-id="3CiG4GDqVnRnZlffPHjtIz">
 
       <!-- 层级一：顶层设计层 -->
-      <section class="stage" style="--lc: var(--top);" data-page-node-id="NAX7PPkmYooVnWQ7nRZAbt">
-        <div class="stage-head" data-page-node-id="5w85GJYm9obhKm24LcSOcx">
-          <div class="stage-no" data-page-node-id="UxT0IMC15srTOESjr97xnv">层级一</div>
-          <div class="stage-name" data-page-node-id="gWefwriJJBg4Ps2rLcWihk">顶层设计层</div>
-          <div class="stage-mission" data-page-node-id="MQQBCIUPmsMbyginRtdfZh">回答"战略目标怎么定、减碳路径怎么走"</div>
+      <section class="stage" style="--lc: var(--top);" data-page-node-id="chKOCgXyGEGW1KQmHIh63x">
+        <div class="stage-head" data-page-node-id="fsHT4Uai7ub2EPRmE5brwv">
+          <div class="stage-no" data-page-node-id="Nls3i9BhgtPkdclKfjb0IC">LEVEL 01</div>
+          <div class="stage-name" data-page-node-id="mqPokkFi7mZBj0ZcLFhiNz">顶层设计层</div>
+          <div class="stage-mission" data-page-node-id="Dm8W8cBVFy7KmjckelBx0n">回答"战略目标怎么定、减碳路径怎么走"</div>
         </div>
-        <div class="stage-cards" data-page-node-id="mcBGRwuhuRUpO6vvdu5FJk">
-          <article class="card" style="--mc: var(--top);" data-page-node-id="LKP6QVZY0zuknbGoqgeLbW">
-            <div class="icon" data-page-node-id="iuihTu9RpIFqEXawmIzuWb"><svg viewBox="0 0 24 24" data-page-node-id="mBhqpOn0VKReAXODrSammD"><circle cx="12" cy="12" r="8" data-page-node-id="CBndpwaIvRXTD6O54szEdI"/><circle cx="12" cy="12" r="4" data-page-node-id="V0lYhCG8wCPcMyGi8MxCU5"/><circle cx="12" cy="12" r="0.8" fill="currentColor" stroke="none" data-page-node-id="V5AWs9kfCbqZjKBkPpwJ7N"/></svg></div>
-            <div class="meta" data-page-node-id="yNLaHMU96TuoQ4DuCJHVpC"><div class="name" data-page-node-id="4khBDhtXDCKdEAnBrMmzlS">十五五规划管理</div><div class="desc" data-page-node-id="pq253rLRwWj1ByRFl52Oeg">战略目标制定与规划编制，统筹集团绿色发展全局蓝图</div></div>
-            <div class="num" data-page-node-id="INiJBcLyRPwdpwAdzG4NpX">01</div>
+        <div class="stage-cards" data-page-node-id="4Lp22m1KqeeyJxjSBW1f8N">
+          <article class="card" style="--mc: var(--top);" data-page-node-id="6uNjdjej2EevDhFz5eOZAR">
+            <div class="icon" data-page-node-id="BJkl1l8r8uFiMBxPaWISfz"><svg viewBox="0 0 24 24" data-page-node-id="omut9eVTbBPqlKUlmaNoyw"><circle cx="12" cy="12" r="8" data-page-node-id="1lFxfJZlg3cKBgnDSTH6NR"/><circle cx="12" cy="12" r="4" data-page-node-id="z1DaDuqtFcNCG0gYZl1EBh"/><circle cx="12" cy="12" r="0.8" fill="currentColor" stroke="none" data-page-node-id="IJSaqyAgF7ThkmYOBITtwM"/></svg></div>
+            <div class="meta" data-page-node-id="kJI2weLAkAmyS58FbKgDCv">
+              <div class="name" data-page-node-id="SVaDMklpq9J9lUoQkoAPwl">十五五规划管理</div>
+              <div class="desc" data-page-node-id="ar00JYlRoYuFhnoaIOhF4t">战略目标制定与规划编制，统筹集团绿色发展全局蓝图</div>
+            </div>
+            <div class="num" data-page-node-id="A5C9NJcos9tuSoBbYEnyZf">01</div>
           </article>
-          <article class="card" style="--mc: #8B7FE8;" data-page-node-id="xE2r0dHDdzaZPay3uImdsM">
-            <div class="icon" data-page-node-id="A9ZoU7GZfdMEQMJjpdzrWE"><svg viewBox="0 0 24 24" data-page-node-id="aNXw8SvJs8Jzwz8Mqob2Aj"><path d="M2 17 L8 8 L12 14 L16 6 L22 17" data-page-node-id="afyHLNnTsxzINvW6Obh5cN"/><path d="M2 20 H22" data-page-node-id="GJTHCFGGAZAjdFKLIyCivG"/></svg></div>
-            <div class="meta" data-page-node-id="yl1HqmN0xKMU2A8cmO3P6P"><div class="name" data-page-node-id="kvkrjPNp4YND6u6AnIFyEd">碳达峰行动方案管理</div><div class="desc" data-page-node-id="3UUZ9i2ctVep7FOYZXWQ5W">碳达峰路径设计与行动方案分解，明确减排时间表路线图</div></div>
-            <div class="num" data-page-node-id="eG413eO9CDu0MAgHOl5XBG">02</div>
+          <article class="card" style="--mc: #9b8cff;" data-page-node-id="QdsAZOseMCYrKiVqEebspd">
+            <div class="icon" data-page-node-id="soH5UzsqKwvxi13hsArJGq"><svg viewBox="0 0 24 24" data-page-node-id="avgkv0NpdZMnl92EVQQc10"><path d="M2 17 L8 8 L12 14 L16 6 L22 17" data-page-node-id="Gch8u2M8pEovOKOaAnPfHC"/><path d="M2 20 H22" data-page-node-id="cirQRLfyMivbjUnGrZ6G5B"/></svg></div>
+            <div class="meta" data-page-node-id="kAP4LG0W3DagaSFkwaDkJ0">
+              <div class="name" data-page-node-id="33c48cGHzNFNRfVZyNa7sz">碳达峰行动方案管理</div>
+              <div class="desc" data-page-node-id="ZkSyfN5kLP8Etr9Aaj6yDQ">碳达峰路径设计与行动方案分解，明确减排时间表路线图</div>
+            </div>
+            <div class="num" data-page-node-id="vxQdnpoUUrcmk7rE9gcJ4k">02</div>
           </article>
         </div>
       </section>
 
-      <div class="arrow" style="--nc: var(--exec);" data-page-node-id="FIUh7Hth73kstefazEUnQ5"><svg viewBox="0 0 24 24" data-page-node-id="QMx2IfHsGZBS5Ly3PM6ow8"><path d="M4 12 H19" data-page-node-id="fThUQddpkDekBAbCAdhy3m"/><path d="M14 7 L20 12 L14 17" data-page-node-id="1EWCIRK1LEO5kXv3d2NX5O"/></svg></div>
+      <div class="arrow" style="--nc: var(--exec);" data-page-node-id="5AOWQgY3nQtcDgNYHHjxsH"><svg viewBox="0 0 24 24" data-page-node-id="GfHY6q5iBTUP4GJS4CVUav"><path d="M4 12 H19" data-page-node-id="7Y1kaFJIIqA5xLo867DeSF"/><path d="M14 7 L20 12 L14 17" data-page-node-id="TqJUvo893XdpdKsnCHlghZ"/></svg></div>
 
       <!-- 层级二：日常执行层 -->
-      <section class="stage" style="--lc: var(--exec);" data-page-node-id="PxR3ie0qNOjQ148cNJjlgY">
-        <div class="stage-head" data-page-node-id="gcMHtDz0RaSDiaFRkSaTK0">
-          <div class="stage-no" data-page-node-id="L6LZCKWsxIxfW4UtVd9YBV">层级二</div>
-          <div class="stage-name" data-page-node-id="3et0r9q9oPOW7QBPAfseCF">日常执行层</div>
-          <div class="stage-mission" data-page-node-id="iy8Zol1aMDl4hodJztohBg">回答"日常业务怎么管、底线怎么守"</div>
+      <section class="stage" style="--lc: var(--exec);" data-page-node-id="4oVaEUEwpnsEx2qxfd3G6C">
+        <div class="stage-head" data-page-node-id="9euEryw4NGJcuy9vk4O36H">
+          <div class="stage-no" data-page-node-id="fPrPd0Qf81YMZgmvy50GFu">LEVEL 02</div>
+          <div class="stage-name" data-page-node-id="HMDdRkqmHS06wpmDwH7HaD">日常执行层</div>
+          <div class="stage-mission" data-page-node-id="RTrkgOWSmbmiqLQMZCuoII">回答"日常业务怎么管、底线怎么守"</div>
         </div>
-        <div class="stage-cards" data-page-node-id="wxT10VX68NIBzmqEA7kpqt">
-          <article class="card" style="--mc: var(--exec);" data-page-node-id="2AjjKL9oNKRY9qSgo1Axen">
-            <div class="icon" data-page-node-id="UeRSjewua3sGr0rCqgwCOD"><svg viewBox="0 0 24 24" data-page-node-id="1ffsTAIzCqVq7awfIj6uFO"><path d="M13 2 L4 14 H11 L10 22 L20 9 H13 Z" data-page-node-id="2G8Zz5GYjMZTGWcC4bASwX"/></svg></div>
-            <div class="meta" data-page-node-id="NuZQOsy0ljUFvVUiDaoouc"><div class="name" data-page-node-id="vUFX0fS9gWjr6FAZgxWaJZ">能碳管理</div><div class="desc" data-page-node-id="csNDkCpYDleJtThhX81KXG">能耗与碳排放实时监测，能碳数据归集与对标分析</div></div>
-            <div class="num" data-page-node-id="Sbf9D6dqX2HMM9mKXB5gvx">03</div>
+        <div class="stage-cards" data-page-node-id="lzKFDrZPhEu8ppF1roK41e">
+          <article class="card" style="--mc: var(--exec);" data-page-node-id="5bazOVE0SivzcztdQr2ip4">
+            <div class="icon" data-page-node-id="Bt7K34bKcLvDxJ4VfGYUZ6"><svg viewBox="0 0 24 24" data-page-node-id="yg1GgyMCltvJJ8WiqB4fxw"><path d="M13 2 L4 14 H11 L10 22 L20 9 H13 Z" data-page-node-id="U5X6WGTFkFFXoGpNscgdkc"/></svg></div>
+            <div class="meta" data-page-node-id="a0EeWmPMyLs09v7jfCzBnR">
+              <div class="name" data-page-node-id="yhfCtJFUWgWFnufHt6qw4v">能碳管理</div>
+              <div class="desc" data-page-node-id="IBiJvjZSnwdJ9wGVdc76Ac">能耗与碳排放实时监测，能碳数据归集与对标分析</div>
+            </div>
+            <div class="num" data-page-node-id="rLOksylclUHRIsE7tCtDJd">03</div>
           </article>
-          <article class="card" style="--mc: #2E9BD6;" data-page-node-id="HGYaZo5rJdq1r5u2oqaljX">
-            <div class="icon" data-page-node-id="VEUVHZwBmBPrBRzHKYVaGB"><svg viewBox="0 0 24 24" data-page-node-id="tCyGDuqDZL6TsXmIbcONYo"><path d="M5 19 C5 9 12 4 19 4 C19 13 13 19 5 19 Z" data-page-node-id="5SAAEeymzoS13TxyNsi7Z4"/><path d="M5 19 C9 15 13 12 17 10" data-page-node-id="VjlDFFRaejVLlhTO34Tbcv"/></svg></div>
-            <div class="meta" data-page-node-id="7eApEt1LBljQ4rcGWCzt9S"><div class="name" data-page-node-id="2FSPP9bsj7TXCQEbPAbwSn">环保管理</div><div class="desc" data-page-node-id="nRu5egoc6LiXBhLhEf7MjQ">污染防治与环保合规监管，排放达标全过程管控</div></div>
-            <div class="num" data-page-node-id="DLBWZlc28d8S1q1KDBneaG">04</div>
+          <article class="card" style="--mc: #33ddb8;" data-page-node-id="9c9bXNv2iEzRSHhF5wRS3y">
+            <div class="icon" data-page-node-id="fvKPlh5fSA9stBfCWeC6iF"><svg viewBox="0 0 24 24" data-page-node-id="oeFGcyyYShsgbP7sf2TACH"><path d="M5 19 C5 9 12 4 19 4 C19 13 13 19 5 19 Z" data-page-node-id="OHuBvMBxB7W3aahEC9tv0E"/><path d="M5 19 C9 15 13 12 17 10" data-page-node-id="snQuDhL95tqvy64V13zZXq"/></svg></div>
+            <div class="meta" data-page-node-id="w6Jj1vRVDHzQentg0oWzJZ">
+              <div class="name" data-page-node-id="iLqtqi6irToJneHlrJ0xFc">环保管理</div>
+              <div class="desc" data-page-node-id="sFR7Qtb99CL6BxqH6SWEbT">污染防治与环保合规监管，排放达标全过程管控</div>
+            </div>
+            <div class="num" data-page-node-id="NMxHmpsKMsCOEDX41S1v27">04</div>
           </article>
         </div>
       </section>
 
-      <div class="arrow" style="--nc: var(--spec);" data-page-node-id="4N9tBHTqxZx2e639DPrd8n"><svg viewBox="0 0 24 24" data-page-node-id="2aE1sPrMdaIEvNf4Xm27Qb"><path d="M4 12 H19" data-page-node-id="tKTLLYYwrcrJ7bWlfLfoVZ"/><path d="M14 7 L20 12 L14 17" data-page-node-id="jd4eENRLfPR2ucVHHd7yNV"/></svg></div>
+      <div class="arrow" style="--nc: var(--spec);" data-page-node-id="dx3zsoLBBTRjO8xvwllBYp"><svg viewBox="0 0 24 24" data-page-node-id="S99AdyHzXQmORlGCxjJf6j"><path d="M4 12 H19" data-page-node-id="wD5S1brUEZLZAXXvBVfc3E"/><path d="M14 7 L20 12 L14 17" data-page-node-id="95UNujIKsb52QeMFxAxSil"/></svg></div>
 
       <!-- 层级三：专项攻坚层 -->
-      <section class="stage" style="--lc: var(--spec);" data-page-node-id="hkxUHaqwHYAfVASaFxeTc1">
-        <div class="stage-head" data-page-node-id="UVomK8g7qyMTdFNFNTWrjh">
-          <div class="stage-no" data-page-node-id="vw4v72wHZQhmXNab6YQ8YZ">层级三</div>
-          <div class="stage-name" data-page-node-id="GE0oIAlxgScI34bmOjxzHS">专项攻坚层</div>
-          <div class="stage-mission" data-page-node-id="ilqugeyujZeJRzEcp4LvGf">回答"先进怎么创、效益怎么挖"</div>
+      <section class="stage" style="--lc: var(--spec);" data-page-node-id="EleTkmvjFEHh5CLp1eyGAN">
+        <div class="stage-head" data-page-node-id="Cga7AokPtzQEdSAFnCoLIw">
+          <div class="stage-no" data-page-node-id="VMW7uN6Dx0f8QlJWMNS4Tg">LEVEL 03</div>
+          <div class="stage-name" data-page-node-id="4Rr2yfV64CrEUsov8fq5SS">专项攻坚层</div>
+          <div class="stage-mission" data-page-node-id="mXz6QwDPiIZAC89gOh064A">回答"先进怎么创、效益怎么挖"</div>
         </div>
-        <div class="stage-cards" data-page-node-id="bLqu7YPaoexeHpAUjI2M8M">
-          <article class="card" style="--mc: var(--spec);" data-page-node-id="5Ct4aJjSe24kpYTueDm6yd">
-            <div class="icon" data-page-node-id="aklEDRa2bF08XnyHbTgKYq"><svg viewBox="0 0 24 24" data-page-node-id="NJJrXQeMYBApdSv2OwO37E"><path d="M3 21 V10 L9 6 V10 L15 6 V10 L21 8 V21 Z" data-page-node-id="nm4YOpV20LClSt9Xo6gHHZ"/><path d="M3 21 H21" data-page-node-id="L1OFmHloVcLiBDdgCXuFFH"/><path d="M9 21 V14" data-page-node-id="oQugQYq73GWOSar70bsC71"/><path d="M15 21 V14" data-page-node-id="s3JB87nJ3WxOtlgJPq8Tip"/></svg></div>
-            <div class="meta" data-page-node-id="or4YqwJtwTLFKKkMgyyj2G"><div class="name" data-page-node-id="FCaFpbzuvWhrO5S6DWfK4K">绿色制造示范管理</div><div class="desc" data-page-node-id="Ru2FRIucPA0dgwko8uEmPi">绿色工厂 / 园区 / 供应链示范创建，先进标杆申报管理</div></div>
-            <div class="num" data-page-node-id="THd3HHkp8IaLDEnVgvYIuN">05</div>
+        <div class="stage-cards" data-page-node-id="3hBbOFFQbA673OLc89EKMW">
+          <article class="card" style="--mc: var(--spec);" data-page-node-id="dfEokjzFbr29dO7N0s3795">
+            <div class="icon" data-page-node-id="SFpwU8rAe4TebgEtbYf24x"><svg viewBox="0 0 24 24" data-page-node-id="gfqbCRaRFtL6QwrBXjtyit"><path d="M3 21 V10 L9 6 V10 L15 6 V10 L21 8 V21 Z" data-page-node-id="qy0esOjTXg0waI8gqEYG5J"/><path d="M3 21 H21" data-page-node-id="E1ScQMMLQLfp5nhYBg3TPG"/><path d="M9 21 V14" data-page-node-id="ybW1vnhzN5H1zKX7Wr31PZ"/><path d="M15 21 V14" data-page-node-id="wRDmoW5RoozWqwPsXnxMb6"/></svg></div>
+            <div class="meta" data-page-node-id="6MSeBXEB1KNZ4hmDnSqSGK">
+              <div class="name" data-page-node-id="P7R1ApBzUZuRia28shIUsB">绿色制造示范管理</div>
+              <div class="desc" data-page-node-id="sjjEskLh54L9c0xCmeUYCI">绿色工厂 / 园区 / 供应链示范创建，先进标杆申报管理</div>
+            </div>
+            <div class="num" data-page-node-id="ZuL4mYGRmXEXJgz8twOH07">05</div>
           </article>
-          <article class="card" style="--mc: #7BA62F;" data-page-node-id="LupBjFbQvzZ6mwKliuZJjF">
-            <div class="icon" data-page-node-id="6LF7ri1pMQWVtTtfoCRDJt"><svg viewBox="0 0 24 24" data-page-node-id="E2DebWNuqHqcAU0BXI93BD"><path d="M3 17 L9 11 L13 15 L21 6" data-page-node-id="0yJaOnGrULRPVOnwkfr1nS"/><path d="M21 6 H15" data-page-node-id="9rKYjbM25hbl45iKxEXp0k"/><path d="M21 6 V12" data-page-node-id="Rdbk3NxKW8XQIjpgdgcJZv"/></svg></div>
-            <div class="meta" data-page-node-id="ZYUAEV4VDAWlkZmwTQ6WwT"><div class="name" data-page-node-id="90rO6E8Z6AeXB49q2TjJYC">能源提质增效管理</div><div class="desc" data-page-node-id="JQRdSriRGvpmMgwz3l5gkj">节能技改与能效提升项目推进，挖掘节能降碳效益</div></div>
-            <div class="num" data-page-node-id="3s17SZ8bd0I2EDpGYw7awW">06</div>
+          <article class="card" style="--mc: #f5b830;" data-page-node-id="5fbQhZg3d2SSTu12EJ4cDN">
+            <div class="icon" data-page-node-id="fgeBbcxOE0eN53wyAzehr4"><svg viewBox="0 0 24 24" data-page-node-id="QVNO4PFEVj1MI1fs4Y2oRx"><path d="M3 17 L9 11 L13 15 L21 6" data-page-node-id="5KFrD9sZpHEsr3B12ueZ9N"/><path d="M21 6 H15" data-page-node-id="agbXh9VO74imIHN81FMniZ"/><path d="M21 6 V12" data-page-node-id="chyvGF0YLJrNxZb2mysdJR"/></svg></div>
+            <div class="meta" data-page-node-id="XG7KXu3ePRs0PlhSxUPCft">
+              <div class="name" data-page-node-id="qGpk2rwlTdj262Mb670DD7">能源提质增效管理</div>
+              <div class="desc" data-page-node-id="zDQZKGsOgvAM8goZY0YBll">节能技改与能效提升项目推进，挖掘节能降碳效益</div>
+            </div>
+            <div class="num" data-page-node-id="OsVjiCghDAQwxHGD4TjlMe">06</div>
           </article>
         </div>
       </section>
 
-      <div class="arrow" style="--nc: var(--guar);" data-page-node-id="E5yWxdc3L4y8ygvTXJ7wke"><svg viewBox="0 0 24 24" data-page-node-id="5ktp5UaRkE40MMRsHqgoZC"><path d="M4 12 H19" data-page-node-id="L94XIvvsTaJGBQwrSNgF54"/><path d="M14 7 L20 12 L14 17" data-page-node-id="JAjhTSHkJGkpIf50LGmCt9"/></svg></div>
+      <div class="arrow" style="--nc: var(--guar);" data-page-node-id="6HYtEVe40oRX9njDtbPLC2"><svg viewBox="0 0 24 24" data-page-node-id="TIIGwcwOafHFaDFf3JWtpR"><path d="M4 12 H19" data-page-node-id="FR0ZExi9ZlqYtJjp1VWRRP"/><path d="M14 7 L20 12 L14 17" data-page-node-id="Wn6RKPwyz4zSNThT7xRC8C"/></svg></div>
 
       <!-- 层级四：过程保障层 -->
-      <section class="stage" style="--lc: var(--guar);" data-page-node-id="ErAPXJ7NhiIlBnLakJIrIM">
-        <div class="stage-head" data-page-node-id="MQu21qstHrx0dnxJuJ5vDN">
-          <div class="stage-no" data-page-node-id="aTXtM5JdOYrZwEDn4XOu3F">层级四</div>
-          <div class="stage-name" data-page-node-id="YfbI0SVQnDrCE9urPWKrd3">过程保障层</div>
-          <div class="stage-mission" data-page-node-id="mYajTcGAsmWtdl2yEWbElT">回答"隐患怎么防、执行怎么验"</div>
+      <section class="stage" style="--lc: var(--guar);" data-page-node-id="J4FQzCZXuGZG721X5ZpyFm">
+        <div class="stage-head" data-page-node-id="RztrfnYGkjoGFkmIjXNAR6">
+          <div class="stage-no" data-page-node-id="ypQoNc0ttE6JeFoXjIDeq8">LEVEL 04</div>
+          <div class="stage-name" data-page-node-id="4jiJrIZbiHdiqkFKyuFVg3">过程保障层</div>
+          <div class="stage-mission" data-page-node-id="HnYtuHERBJakgxIWnpS9b3">回答"隐患怎么防、执行怎么验"</div>
         </div>
-        <div class="stage-cards" data-page-node-id="wsbq1XQNh1tkApEry8mADP">
-          <article class="card" style="--mc: var(--guar);" data-page-node-id="MqA5EVzemnLs3gDcwSj7rv">
-            <div class="icon" data-page-node-id="Zg02hAVwLNqA8nD1eOhFET"><svg viewBox="0 0 24 24" data-page-node-id="4F173s5cHEqMZDCTU6UN8E"><path d="M12 3 L22 20 H2 Z" data-page-node-id="5EyzIvm0qpUlDHkS2ZBAkM"/><path d="M12 9 V14" data-page-node-id="Ag9nqmvWfj3bGXTwA8bTGz"/><circle cx="12" cy="17" r="0.9" fill="currentColor" stroke="none" data-page-node-id="hciqy8URahG5vjHBAsdNex"/></svg></div>
-            <div class="meta" data-page-node-id="pdqzGV51EF9E0DTfHJPrcU"><div class="name" data-page-node-id="wtTh0uj8p1ZFnia1mkt45N">风险管控</div><div class="desc" data-page-node-id="GnCPa8aHTpDMx4CVlip77d">绿色发展风险识别预警与应急处置，筑牢风险防线</div></div>
-            <div class="num" data-page-node-id="jfWUpbOfA1ZCfdAarUrr6u">07</div>
+        <div class="stage-cards" data-page-node-id="0ujjkFyPZnuLEJptNa6b9W">
+          <article class="card" style="--mc: var(--guar);" data-page-node-id="dD8WuxHWLph07w5eEUVuFA">
+            <div class="icon" data-page-node-id="395htXAEFazvgM4FLB5H6C"><svg viewBox="0 0 24 24" data-page-node-id="THIcPCdjCZnfX5HMFpTpN4"><path d="M12 3 L22 20 H2 Z" data-page-node-id="wRjVYGoNNbm8f84XkmqGA5"/><path d="M12 9 V14" data-page-node-id="5yCVkgZiVacsBGWUca6Egk"/><circle cx="12" cy="17" r="0.9" fill="currentColor" stroke="none" data-page-node-id="uwdAN2yDBN2kZuU3kS1epr"/></svg></div>
+            <div class="meta" data-page-node-id="gR1NKOCvzHO9eDfqO6bS8A">
+              <div class="name" data-page-node-id="HvDqyYvQ5pOB7TYeOxcBAy">风险管控</div>
+              <div class="desc" data-page-node-id="9w2J0ZlEAFUWZjYpaNYvs0">绿色发展风险识别预警与应急处置，筑牢风险防线</div>
+            </div>
+            <div class="num" data-page-node-id="idZKsCGoZI0ch5oB18WyRo">07</div>
           </article>
-          <article class="card" style="--mc: #2F6FB0;" data-page-node-id="37KsqPSbScWfBL1PKx2ADo">
-            <div class="icon" data-page-node-id="N7FFFBK4CWQpA7uY5eTPGX"><svg viewBox="0 0 24 24" data-page-node-id="yWe6sMKaUocV97OFYX27EW"><circle cx="10" cy="10" r="7" data-page-node-id="szVcyt8Hvj54hV8S8Ef2sF"/><path d="M15 15 L21 21" data-page-node-id="hmXDDd5yra73PhFCXQ5YWA"/></svg></div>
-            <div class="meta" data-page-node-id="GV94HQuKJpnBbnFIfviAx7"><div class="name" data-page-node-id="SBBIe0wSoFW1coYZdkMBXB">工作检查</div><div class="desc" data-page-node-id="Pch20YKlkxU5GgLd0BX7J1">任务执行督查与问题整改闭环，确保落地见效</div></div>
-            <div class="num" data-page-node-id="P0t1Scymu7z8q063ythaXb">08</div>
+          <article class="card" style="--mc: #f87868;" data-page-node-id="iXElGpvXSSnqlnDfRDZpdG">
+            <div class="icon" data-page-node-id="etWFwRGOydOJExBnaIGOxJ"><svg viewBox="0 0 24 24" data-page-node-id="s6hBJG6Sm92Et1sHXReYGr"><circle cx="10" cy="10" r="7" data-page-node-id="dL12QRaBqgVgslRAxTvtG7"/><path d="M15 15 L21 21" data-page-node-id="pErHlX6s8SG5uPuFOIymeD"/></svg></div>
+            <div class="meta" data-page-node-id="dYHh3fa7gCfpYyEkmUpdMG">
+              <div class="name" data-page-node-id="EqjAHMn0acT9uEZFEMDkgA">工作检查</div>
+              <div class="desc" data-page-node-id="PdpJqWyfAnOD87aEfKKcXe">任务执行督查与问题整改闭环，确保落地见效</div>
+            </div>
+            <div class="num" data-page-node-id="FaFw9LTg3UoGdoJb4jKA7w">08</div>
           </article>
         </div>
       </section>
 
-      <div class="arrow" style="--nc: var(--check);" data-page-node-id="aoBZGLOcprtF2wISQEgl9K"><svg viewBox="0 0 24 24" data-page-node-id="ZL6QYnJvnZ4uYQ5iEqt8nE"><path d="M4 12 H19" data-page-node-id="etzfBvvmEd2dGfsBL2xpYG"/><path d="M14 7 L20 12 L14 17" data-page-node-id="MQbb41ZLGtvmznbMBBkEj9"/></svg></div>
+      <div class="arrow" style="--nc: var(--check);" data-page-node-id="qPO6Ez2QdBzCVBx8txMsTo"><svg viewBox="0 0 24 24" data-page-node-id="P3UsZEHowG4g89FqcKM3cU"><path d="M4 12 H19" data-page-node-id="AkTlkTb5flTohtx9YhIvl0"/><path d="M14 7 L20 12 L14 17" data-page-node-id="MDL5fNOnK94tJEtIcJ5fu8"/></svg></div>
 
-      <!-- 层级五：考核检验层（闭环出口） -->
-      <section class="stage final" style="--lc: var(--check);" data-page-node-id="3YayKaNdbOYuZuolG5iFRj">
-        <div class="stage-head" data-page-node-id="Omqys1donLkLhdrgbBwdw1">
-          <div class="stage-no" data-page-node-id="Uxj1NOC3PIN29LnecyZea4">层级五</div>
-          <div class="stage-name" data-page-node-id="KGAexAgD3ELkDgiSeUeSY5">考核检验层</div>
-          <div class="stage-mission" data-page-node-id="LCGQl7eP6Lml4ZdPyfzBiE">回答"成绩怎么样、短板怎么改"</div>
+      <!-- 层级五：考核检验层 -->
+      <section class="stage final" style="--lc: var(--check);" data-page-node-id="stnKFKBOFdoxSKdlqGdSxt">
+        <div class="stage-head" data-page-node-id="a5SOxihXLJ0eGBLs5xz4No">
+          <div class="stage-no" data-page-node-id="JAYDz3znowLZ804b3YSnri">LEVEL 05</div>
+          <div class="stage-name" data-page-node-id="YWClJ1uN2ajmMAUBunXoF2">考核检验层</div>
+          <div class="stage-mission" data-page-node-id="tNH0JDLDE6IiOKmHrQy2Yw">回答"成绩怎么样、短板怎么改"</div>
         </div>
-        <div class="stage-cards" data-page-node-id="2ElZWQhIa2IE512rO5Osij">
-          <article class="card" style="--mc: var(--check);" data-page-node-id="7266rTNokuQuUTJBiWZc1Q">
-            <div class="icon" data-page-node-id="HbyPWt5P47S25ppmWseLVm"><svg viewBox="0 0 24 24" data-page-node-id="1KGkCPQjBIROOx0Ql0FW0u"><path d="M12 3 L14.5 9 L21 9.5 L16 14 L17.5 20.5 L12 17 L6.5 20.5 L8 14 L3 9.5 L9.5 9 Z" data-page-node-id="cmAdxCQgzCIcdarTAenUuY"/></svg></div>
-            <div class="meta" data-page-node-id="CydPDLsGKMQZQb0kQPmk8h">
-              <div class="name" data-page-node-id="LvJkvzUnRSDwSvw06rEnT9">国资委绿色发展评价管理</div>
-              <div class="desc" data-page-node-id="0hMU1woLLHlx6AAsl1O965">综合评分与对标分析，短板诊断与改进建议</div>
-              <div class="points" data-page-node-id="green-pts-01">
-                <span>综合评分</span><span>对标分析</span><span>短板诊断</span><span>改进建议</span>
+        <div class="stage-cards" data-page-node-id="IoHXDmUIakTznpHcpM7RD7">
+          <article class="card" style="--mc: var(--check);" data-page-node-id="Ypk3rGCIqXZmt59AmGE9jE">
+            <div class="icon" data-page-node-id="z43RVyWItNmLl3iTq4yO4K"><svg viewBox="0 0 24 24" data-page-node-id="nmBcf9TOwllgDr8SDRf7nA"><path d="M12 3 L14.5 9 L21 9.5 L16 14 L17.5 20.5 L12 17 L6.5 20.5 L8 14 L3 9.5 L9.5 9 Z" data-page-node-id="f8zbXpv2c1EFF2mmnR9QEe"/></svg></div>
+            <div class="meta" data-page-node-id="KtlKFA95lvTXTCxXgGqYFn">
+              <div class="name" data-page-node-id="3I6FEPmOlj6IySGMV0iPch">国资委绿色发展评价管理</div>
+              <div class="desc" data-page-node-id="baEiGSPPGB4X4USD0R1uZP">综合评分与对标分析，短板诊断与改进建议</div>
+              <div class="points" data-page-node-id="NkWonDLF28HrAMInp1wmLT">
+                <span data-page-node-id="dNUYH0ZzWCkGJJLsWBioxf">综合评分</span><span data-page-node-id="KHqenpTA4C3KoWXEXqXGBm">对标分析</span><span data-page-node-id="gbNaZQXLYHCOwfVE2FYJXq">短板诊断</span><span data-page-node-id="TlAk0xLbNqpDvVb7LTqcQK">改进建议</span>
               </div>
-              <span class="out-tag" data-page-node-id="rPhxy1nksBB5wCLvg3j21y">体系闭环出口</span>
+              <span class="out-tag" data-page-node-id="OYOkSPCWIUyC7LQCLGvyxA">体系闭环出口</span>
             </div>
-            <div class="num" data-page-node-id="E5SfV5viYLcHspwcv84rm4">09</div>
+            <div class="num" data-page-node-id="HJRgSuGXdxFOpTqUfb28Xx">09</div>
           </article>
         </div>
       </section>
@@ -301,12 +389,10 @@
     </div>
 
     <!-- 闭环横幅 -->
-    <div class="loop-banner" data-page-node-id="QMzcA6mV1QcDUeg1ymYdHH">
-      <div class="loop-icon" data-page-node-id="CI17HD5QFOGZ3MfpSXMEbs">
-        <svg viewBox="0 0 24 24" data-page-node-id="KdWYTliqwexrU6VIoq6n6i"><path d="M3 12 a9 9 0 0 1 15-6.7 L21 8" data-page-node-id="WW2vrRZO4rWEFvlCTtwSjH"/><path d="M21 3 v5 h-5" data-page-node-id="PHSf8PC4FolYzk6Bd7Gvu7"/><path d="M21 12 a9 9 0 0 1 -15 6.7 L3 16" data-page-node-id="BC6wXcSdBYYIKDIGLsNDMd"/><path d="M3 21 v-5 h5" data-page-node-id="JeduPkqE6RekgbMaWZdJWE"/></svg>
-      </div>
-      <div class="loop-text" data-page-node-id="8tjcHEbH8aNq1mQZ1zFevD">
-        <b data-page-node-id="DZGi6TyIeSaAOolH1Ko7bk">管理闭环</b> · 考核检验结果反哺战略优化，构建「目标设定 → 日常执行 → 专项攻坚 → 过程保障 → 考核检验」持续迭代的 PDCA 闭环管理体系
+    <div class="loop-banner" data-page-node-id="Gu60AujhosFNOvlhZK1Ean">
+      <div class="loop-icon" data-page-node-id="lGmIze5OuIruZ7hohKI2AF"><svg viewBox="0 0 24 24" data-page-node-id="6FUv7Di84qyhWOZQoQ7L2H"><path d="M3 12 a9 9 0 0 1 15-6.7 L21 8" data-page-node-id="vVGM1fvBSoeOvfpP0Qgg0z"/><path d="M21 3 v5 h-5" data-page-node-id="j4VE5PSui8wCxnoHbaPVp5"/><path d="M21 12 a9 9 0 0 1 -15 6.7 L3 16" data-page-node-id="fBWyLqbWM2PeSuRs8nSRtY"/><path d="M3 21 v-5 h5" data-page-node-id="ovdqbBfGSgKQ0GwlGCCzFP"/></svg></div>
+      <div class="loop-text" data-page-node-id="KGwpOJ7TnX6mHH1cx5RnRD">
+        <b data-page-node-id="zSXKWv6zLloMMO3GczD1ss">管理闭环</b> · 考核检验结果反哺战略优化，构建「目标设定 → 日常执行 → 专项攻坚 → 过程保障 → 考核检验」持续迭代的 PDCA 闭环管理体系
       </div>
     </div>
 
