@@ -28,7 +28,7 @@
   }
 
   .poster {
-    max-width: 1280px;
+    max-width: 1320px;
     margin: 0 auto;
     background: #ffffff;
     border-radius: 26px;
@@ -57,42 +57,53 @@
   .divider { height: 3px; border-radius: 3px; margin: 20px 0 26px; background: linear-gradient(90deg, var(--top), var(--exec), var(--spec), var(--guar), var(--check)); opacity: .9; }
 
   /* ---------- 横向流程 ---------- */
-  .flow { display: flex; align-items: stretch; gap: 0; }
+  .flow { display: flex; align-items: stretch; gap: 0; counter-reset: layer; }
   .stage {
-    --lc: #999;
+    --lc: #999; counter-increment: layer;
     flex: 1 1 0; min-width: 188px;
-    background: color-mix(in srgb, var(--lc) 7%, #fff);
-    border: 1px solid color-mix(in srgb, var(--lc) 14%, #fff);
+    background: linear-gradient(180deg, color-mix(in srgb, var(--lc) 9%, #fff), color-mix(in srgb, var(--lc) 3%, #fff));
+    border: 1px solid color-mix(in srgb, var(--lc) 16%, #fff);
     border-radius: 18px;
     padding: 14px;
     display: flex; flex-direction: column; gap: 12px;
+    box-shadow: 0 6px 18px rgba(22, 32, 64, 0.05);
   }
   .stage-head {
-    background: var(--lc); color: #fff; border-radius: 13px;
-    padding: 14px 15px;
+    position: relative;
+    background: linear-gradient(135deg, var(--lc), color-mix(in srgb, var(--lc) 78%, #ffffff));
+    color: #fff; border-radius: 13px;
+    padding: 14px 48px 14px 15px;
+    box-shadow: 0 6px 16px color-mix(in srgb, var(--lc) 26%, transparent);
+  }
+  .stage-head::after {
+    content: counter(layer);
+    position: absolute; top: 50%; right: 13px; transform: translateY(-50%);
+    width: 28px; height: 28px; border-radius: 50%;
+    background: rgba(255,255,255,.20); border: 1px solid rgba(255,255,255,.6);
+    display: grid; place-items: center; font-size: 13px; font-weight: 700;
   }
   .stage-no { font-size: 11.5px; opacity: .82; letter-spacing: 2px; }
   .stage-name { font-size: 17px; font-weight: 750; margin: 4px 0; }
-  .stage-mission { font-size: 11.5px; line-height: 1.55; opacity: .92; }
-  .stage-cards { display: flex; flex-direction: column; gap: 11px; flex: 1; justify-content: center; }
+  .stage-mission { font-size: 11.5px; line-height: 1.5; opacity: .92; }
+  .stage-cards { display: flex; flex-direction: column; gap: 12px; flex: 1; justify-content: flex-start; }
 
   .arrow {
-    --nc: #999; flex: 0 0 auto; width: 36px;
+    --nc: #999; flex: 0 0 auto; width: 38px;
     display: flex; align-items: center; justify-content: center;
   }
-  .arrow svg { width: 24px; height: 24px; stroke: var(--nc); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .arrow svg { width: 26px; height: 26px; stroke: var(--nc); fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; opacity: .85; }
 
-  /* ---------- 模块卡片 ---------- */
+  /* ---------- 模块卡片：统一等高 ---------- */
   .card {
-    --mc: #666; position: relative;
+    --mc: #666; position: relative; height: 108px;
     background: #fff; border: 1px solid var(--line);
     border-left: 4px solid var(--mc); border-radius: 13px;
     padding: 14px 15px 14px 13px;
     display: flex; gap: 12px; align-items: flex-start;
     box-shadow: 0 2px 10px rgba(22, 32, 64, 0.045);
-    transition: transform .18s ease, box-shadow .18s ease;
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
   }
-  .card:hover { transform: translateY(-3px); box-shadow: 0 12px 26px rgba(22, 32, 64, 0.10); }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 12px 26px rgba(22, 32, 64, 0.10); border-color: color-mix(in srgb, var(--mc) 45%, #fff); }
   .icon {
     width: 44px; height: 44px; border-radius: 13px; flex-shrink: 0;
     background: color-mix(in srgb, var(--mc) 14%, #fff);
@@ -103,9 +114,13 @@
   .meta { flex: 1; padding-right: 24px; }
   .num { position: absolute; top: 11px; right: 13px; font-size: 11.5px; font-weight: 750; color: #c2c6d2; letter-spacing: .5px; }
   .name { font-size: 14.5px; font-weight: 700; color: #1f2738; line-height: 1.35; }
-  .desc { font-size: 12px; color: #6b7280; margin-top: 5px; line-height: 1.55; }
+  .desc { font-size: 12px; color: #6b7280; margin-top: 5px; line-height: 1.5; }
 
   /* 闭环出口强调 */
+  .stage.final {
+    background: linear-gradient(180deg, color-mix(in srgb, var(--check) 15%, #fff), color-mix(in srgb, var(--check) 6%, #fff));
+    border-color: color-mix(in srgb, var(--check) 30%, #fff);
+  }
   .stage.final .card { border-left-width: 5px; }
   .out-tag {
     display: inline-block; margin-top: 6px; font-size: 11px; font-weight: 650;
@@ -140,6 +155,7 @@
     .flow { flex-direction: column; }
     .arrow { width: auto; height: 30px; transform: rotate(90deg); }
     .stage { min-width: 0; }
+    .card { height: auto; min-height: 88px; }
   }
   @media print { body { background: #fff; padding: 0; } .poster { box-shadow: none; max-width: none; } }
 </style>
@@ -269,7 +285,7 @@
             <div class="icon" data-page-node-id="HbyPWt5P47S25ppmWseLVm"><svg viewBox="0 0 24 24" data-page-node-id="1KGkCPQjBIROOx0Ql0FW0u"><path d="M12 3 L14.5 9 L21 9.5 L16 14 L17.5 20.5 L12 17 L6.5 20.5 L8 14 L3 9.5 L9.5 9 Z" data-page-node-id="cmAdxCQgzCIcdarTAenUuY"/></svg></div>
             <div class="meta" data-page-node-id="CydPDLsGKMQZQb0kQPmk8h">
               <div class="name" data-page-node-id="LvJkvzUnRSDwSvw06rEnT9">国资委绿色发展评价管理</div>
-              <div class="desc" data-page-node-id="0hMU1woLLHlx6AAsl1O965">综合评分与对标分析，短板诊断与改进建议 —— 体系最终闭环出口</div>
+              <div class="desc" data-page-node-id="0hMU1woLLHlx6AAsl1O965">综合评分与对标分析，短板诊断与改进建议</div>
               <span class="out-tag" data-page-node-id="rPhxy1nksBB5wCLvg3j21y">体系闭环出口</span>
             </div>
             <div class="num" data-page-node-id="E5SfV5viYLcHspwcv84rm4">09</div>
