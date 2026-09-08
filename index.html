@@ -28,7 +28,7 @@
 
   body {
     min-height: 100vh;
-    padding: 28px 20px 40px;
+    padding: 16px 12px 28px;
     font-family: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", system-ui, -apple-system, sans-serif;
     background: var(--bg-deep);
     background-image:
@@ -39,12 +39,12 @@
   }
 
   .poster {
-    max-width: 1440px; width: 100%;
+    max-width: none; width: 100%;
     margin: 0 auto;
     background: linear-gradient(170deg, rgba(11, 22, 40, 0.96), rgba(8, 16, 32, 0.98));
     border: 1px solid var(--border-light);
     border-radius: 16px;
-    padding: 32px 36px 30px;
+    padding: 34px 30px 30px;
     box-shadow:
       0 0 60px rgba(0, 0, 0, 0.4),
       0 0 120px rgba(0, 200, 160, 0.03),
@@ -60,39 +60,39 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 14px;
+    gap: 16px;
     margin-bottom: 6px;
   }
-  .logo {
-    width: 42px; height: 42px; border-radius: 12px;
-    background: linear-gradient(135deg, var(--top), #5a4fd6);
-    display: grid; place-items: center;
-    box-shadow: 0 6px 20px rgba(124, 140, 255, 0.3);
+  .brand-logo {
+    height: 34px; width: auto;
+    display: block;
+    flex-shrink: 0;
+    opacity: .95;
   }
-  .logo svg { width: 24px; height: 24px; stroke: #fff; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
   .title-main {
-    font-size: 26px; font-weight: 750;
+    font-size: 32px; font-weight: 750;
     letter-spacing: 2px;
+    line-height: 1.15;
     background: linear-gradient(90deg, #fff 20%, var(--exec) 50%, #fff 80%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
   .title-sub {
-    font-size: 13px; color: var(--text-dim);
-    letter-spacing: 3px; margin-top: 4px;
+    font-size: 15px; color: var(--text-dim);
+    letter-spacing: 3px; margin-top: 6px;
   }
   .tag-row {
-    display: flex; justify-content: center; gap: 10px; margin-top: 12px;
+    display: flex; justify-content: center; gap: 10px; margin-top: 14px;
   }
   .tag {
-    font-size: 12px; color: var(--exec);
+    font-size: 14px; color: var(--exec);
     background: rgba(0, 212, 160, 0.08);
     border: 1px solid rgba(0, 212, 160, 0.2);
-    padding: 5px 16px; border-radius: 999px; font-weight: 600;
+    padding: 6px 18px; border-radius: 999px; font-weight: 600;
   }
   .divider {
-    height: 1px; margin: 18px 0 22px;
+    height: 1px; margin: 20px 0 24px;
     background: linear-gradient(90deg,
       transparent 0%,
       var(--top) 15%, var(--exec) 35%, var(--spec) 55%, var(--guar) 75%, var(--check) 90%,
@@ -106,12 +106,12 @@
 
   .stage {
     --lc: #666; counter-increment: layer;
-    flex: 1 1 0; min-width: 0; min-height: 340px;
+    flex: 1 1 0; min-width: 0;
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: 14px;
-    padding: 12px;
-    display: flex; flex-direction: column; gap: 10px;
+    padding: 14px;
+    display: flex; flex-direction: column; gap: 12px;
     backdrop-filter: blur(8px);
     transition: border-color .25s ease;
   }
@@ -122,37 +122,37 @@
     position: relative;
     background: linear-gradient(135deg, var(--lc), color-mix(in srgb, var(--lc) 65%, black));
     color: #fff; border-radius: 11px;
-    padding: 12px 40px 12px 13px;
+    padding: 14px 44px 14px 15px;
     box-shadow: 0 4px 14px color-mix(in srgb, var(--lc) 22%, transparent);
   }
   .stage-head::after {
     content: counter(layer);
-    position: absolute; top: 50%; right: 11px; transform: translateY(-50%);
-    width: 26px; height: 26px; border-radius: 50%;
+    position: absolute; top: 50%; right: 12px; transform: translateY(-50%);
+    width: 28px; height: 28px; border-radius: 50%;
     background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.35);
-    display: grid; place-items: center; font-size: 12px; font-weight: 700;
+    display: grid; place-items: center; font-size: 14px; font-weight: 700;
   }
-  .stage-no { font-size: 10.5px; opacity: .78; letter-spacing: 2px; }
-  .stage-name { font-size: 15.5px; font-weight: 750; margin: 3px 0; }
-  .stage-mission { font-size: 10.5px; line-height: 1.5; opacity: .85; }
-  .stage-cards { display: flex; flex-direction: column; gap: 10px; flex: 1; justify-content: flex-start; }
-  .stage-cards .card { flex: 1 1 0; }
+  .stage-no { font-size: 12.5px; opacity: .78; letter-spacing: 2px; }
+  .stage-name { font-size: 18px; font-weight: 750; margin: 4px 0; }
+  .stage-mission { font-size: 12.5px; line-height: 1.5; opacity: .85; }
+  .stage-cards { display: flex; flex-direction: column; gap: 12px; flex: 1; justify-content: flex-start; }
 
   /* 箭头 */
   .arrow {
-    --nc: #666; flex: 0 0 auto; width: 34px;
+    --nc: #666; flex: 0 0 auto; width: 38px;
     display: flex; align-items: center; justify-content: center;
   }
-  .arrow svg { width: 24px; height: 24px; stroke: var(--nc); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; opacity: .6; }
+  .arrow svg { width: 28px; height: 28px; stroke: var(--nc); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; opacity: .6; }
 
   /* ---------- 模块卡片 ---------- */
   .card {
     --mc: #666; position: relative;
+    height: 122px;
     background: rgba(8, 20, 36, 0.55);
     border: 1px solid var(--border-light);
     border-left: 3.5px solid var(--mc); border-radius: 11px;
-    padding: 13px 14px 13px 12px;
-    display: flex; gap: 11px; align-items: flex-start;
+    padding: 14px 16px 14px 14px;
+    display: flex; gap: 12px; align-items: center;
     transition: all .2s ease;
   }
   .card:hover {
@@ -162,23 +162,16 @@
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
   }
   .icon {
-    width: 40px; height: 40px; border-radius: 11px; flex-shrink: 0;
+    width: 46px; height: 46px; border-radius: 12px; flex-shrink: 0;
     background: color-mix(in srgb, var(--mc) 12%, transparent);
     border: 1px solid color-mix(in srgb, var(--mc) 22%, transparent);
     display: grid; place-items: center;
   }
-  .icon svg { width: 22px; height: 22px; stroke: var(--mc); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-  .meta { flex: 1; min-width: 0; padding-right: 22px; }
-  .num { position: absolute; top: 10px; right: 11px; font-size: 11px; font-weight: 700; color: var(--text-muted); letter-spacing: .5px; }
-  .name { font-size: 13.5px; font-weight: 700; color: var(--text); line-height: 1.35; overflow-wrap: anywhere; }
-  .desc { font-size: 11.5px; color: var(--text-dim); margin-top: 4px; line-height: 1.55; overflow-wrap: anywhere; }
-  .points { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
-  .points span {
-    font-size: 10.5px; color: var(--mc);
-    background: color-mix(in srgb, var(--mc) 10%, transparent);
-    border: 1px solid color-mix(in srgb, var(--mc) 18%, transparent);
-    padding: 2px 8px; border-radius: 6px;
-  }
+  .icon svg { width: 26px; height: 26px; stroke: var(--mc); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .meta { flex: 1; min-width: 0; padding-right: 24px; }
+  .num { position: absolute; top: 10px; right: 12px; font-size: 13px; font-weight: 700; color: var(--text-muted); letter-spacing: .5px; }
+  .name { font-size: 16px; font-weight: 700; color: var(--text); line-height: 1.35; overflow-wrap: anywhere; }
+  .desc { font-size: 13.5px; color: var(--text-dim); margin-top: 6px; line-height: 1.55; overflow-wrap: anywhere; }
 
   /* 第5列强调 */
   .stage.final {
@@ -186,17 +179,11 @@
     border-color: color-mix(in srgb, var(--check) 2%, transparent);
   }
   .stage.final .card { border-left-width: 4px; }
-  .out-tag {
-    display: inline-block; margin-top: 6px; font-size: 10.5px; font-weight: 650;
-    color: var(--check); background: rgba(59, 158, 255, 0.1);
-    border: 1px solid rgba(59, 158, 255, 0.25);
-    padding: 3px 9px; border-radius: 999px;
-  }
 
   /* ---------- 闭环横幅 ---------- */
   .loop-banner {
-    margin-top: 18px; border-radius: 12px; padding: 16px 22px;
-    display: flex; align-items: center; gap: 14px;
+    margin-top: 20px; border-radius: 12px; padding: 18px 24px;
+    display: flex; align-items: center; gap: 16px;
     background: linear-gradient(120deg,
       rgba(124, 140, 255, 0.06),
       rgba(0, 212, 160, 0.06) 35%,
@@ -205,13 +192,13 @@
     border: 1px solid var(--border-light);
   }
   .loop-icon {
-    width: 38px; height: 38px; border-radius: 10px;
+    width: 44px; height: 44px; border-radius: 11px;
     background: rgba(59, 158, 255, 0.1);
     border: 1px solid rgba(59, 158, 255, 0.2);
     display: grid; place-items: center; flex-shrink: 0;
   }
-  .loop-icon svg { width: 22px; height: 22px; stroke: var(--check); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-  .loop-text { font-size: 12.5px; color: var(--text-dim); line-height: 1.6; }
+  .loop-icon svg { width: 26px; height: 26px; stroke: var(--check); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .loop-text { font-size: 15px; color: var(--text-dim); line-height: 1.65; }
   .loop-text b { color: var(--text); }
 
   /* ---------- 响应式 ---------- */
@@ -233,6 +220,7 @@
     <!-- 头部：居中 -->
     <header class="head" data-page-node-id="qqCglvqYJftwnj9ZEVgBeD">
       <div class="logo-row" data-page-node-id="kcZfHoe566LwCL98xCUHeB">
+        <img class="brand-logo" alt="中国航天" src="data:image/png;base64,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">
         <h1 class="title-main" data-page-node-id="WVZMYIW1TAOuEHLehEtFGG">中国航天科技集团绿色发展信息管理系统</h1>
       </div>
       <p class="title-sub" data-page-node-id="eZxeOY6md2DJ77GcZsxGFg">业务全景地图 · 五大层级 · 九大模块</p>
@@ -374,11 +362,7 @@
             <div class="icon" data-page-node-id="z43RVyWItNmLl3iTq4yO4K"><svg viewBox="0 0 24 24" data-page-node-id="nmBcf9TOwllgDr8SDRf7nA"><path d="M12 3 L14.5 9 L21 9.5 L16 14 L17.5 20.5 L12 17 L6.5 20.5 L8 14 L3 9.5 L9.5 9 Z" data-page-node-id="f8zbXpv2c1EFF2mmnR9QEe"/></svg></div>
             <div class="meta" data-page-node-id="KtlKFA95lvTXTCxXgGqYFn">
               <div class="name" data-page-node-id="3I6FEPmOlj6IySGMV0iPch">国资委绿色发展评价管理</div>
-              <div class="desc" data-page-node-id="baEiGSPPGB4X4USD0R1uZP">综合评分与对标分析，短板诊断与改进建议</div>
-              <div class="points" data-page-node-id="NkWonDLF28HrAMInp1wmLT">
-                <span data-page-node-id="dNUYH0ZzWCkGJJLsWBioxf">综合评分</span><span data-page-node-id="KHqenpTA4C3KoWXEXqXGBm">对标分析</span><span data-page-node-id="gbNaZQXLYHCOwfVE2FYJXq">短板诊断</span><span data-page-node-id="TlAk0xLbNqpDvVb7LTqcQK">改进建议</span>
-              </div>
-              <span class="out-tag" data-page-node-id="OYOkSPCWIUyC7LQCLGvyxA">体系闭环出口</span>
+              <div class="desc" data-page-node-id="baEiGSPPGB4X4USD0R1uZP">综合评分与对标分析，短板诊断与改进建议，体系闭环出口</div>
             </div>
             <div class="num" data-page-node-id="HJRgSuGXdxFOpTqUfb28Xx">09</div>
           </article>
